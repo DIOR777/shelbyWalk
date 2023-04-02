@@ -5,8 +5,6 @@ using UnityEngine;
 public class collision : MonoBehaviour
 {
 
-    new public GameObject gameObject;
-
     private void OnTriggerEnter(Collider collider) {
         Destroy(collider.gameObject);
     }
