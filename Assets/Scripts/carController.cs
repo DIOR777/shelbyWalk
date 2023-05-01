@@ -18,6 +18,7 @@ public class carController : MonoBehaviour
     [SerializeField] private float motorForce;
     [SerializeField] private float breakForce;
     [SerializeField] private float maxSteeringAngle;
+    [SerializeField] private AudioSource soundEffect;
 
     [SerializeField] private WheelCollider frontLeftWheelCollider;
     [SerializeField] private WheelCollider frontRightWheelCollider;
@@ -34,6 +35,7 @@ public class carController : MonoBehaviour
         HandleMotor();
         HandleSteering();
         UpdateWheels();
+        HandleEffect();
     }
 
     private void GetInput() {
@@ -78,5 +80,10 @@ public class carController : MonoBehaviour
         wheelCollider.GetWorldPose(out pos, out rot);
         wheelTransform.position = pos;
         wheelTransform.rotation = rot;
+    }
+
+    private void HandleEffect()
+    {
+        if (Input.GetKey(KeyCode.H)) soundEffect.Play();
     }
 }
